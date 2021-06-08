@@ -50,6 +50,7 @@
 .navbar .navbar-brand {
   color: #fff !important;
   border-radius: 0.25rem!important;
+  font-size:18px!important;
 }
 
 .navbar-nav li a:hover,

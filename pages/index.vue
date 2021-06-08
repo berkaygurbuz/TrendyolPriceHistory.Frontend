@@ -1,33 +1,6 @@
 <template>
   <div >
-    <div>
-      <Logo />
-      <h1 class="title">PriceHistory.Frontend</h1>
-      <ul>
-        <li v-for="item in items" :key="item.id">{{item.name}}</li>
-      </ul>
-    </div>
-        <div>
-      <Logo />
-      <h1 class="title">PriceHistory.Frontend</h1>
-      <ul>
-        <li v-for="item in items" :key="item.id">{{item.name}}</li>
-      </ul>
-    </div>
-        <div>
-      <Logo />
-      <h1 class="title">PriceHistory.Frontend</h1>
-      <ul>
-        <li v-for="item in items" :key="item.id">{{item.name}}</li>
-      </ul>
-    </div>
-        <div>
-      <Logo />
-      <h1 class="title">PriceHistory.Frontend</h1>
-      <ul>
-        <li v-for="item in items" :key="item.id">{{item.name}}</li>
-      </ul>
-    </div>
+    
   </div>
 </template>
 
