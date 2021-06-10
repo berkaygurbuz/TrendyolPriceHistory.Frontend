@@ -8,6 +8,11 @@ export default {
   data() {
     return {
       options: {
+        elements:{
+          line:{
+            tension:0.1
+          }
+        },
         scales: {
           yAxes: [
             {
