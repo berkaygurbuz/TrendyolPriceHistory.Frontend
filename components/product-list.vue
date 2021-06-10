@@ -131,4 +131,9 @@
   transform: translateY(0);
   opacity: 1;
 }
+@media(max-width:768px){
+  .purple{
+    margin-top:2rem!important;
+  }
+}
 </style>

@@ -3,7 +3,8 @@
     <Navbar></Navbar>
     <Header></Header>
     <ProductList></ProductList>
-    <no-ssr>
+    <b-row class="Line">
+      <b-col md="4">
 <b-card title="Line">
     <b-form-group>
       <b-form-radio
@@ -22,7 +23,50 @@
       <ChartLineBase :chart-data="chartData" />
     </b-card>
   </b-card>
-  </no-ssr>
+  </b-col>
+  
+      <b-col md="4">
+<b-card title="Line">
+    <b-form-group>
+      <b-form-radio
+        v-for="(item, index) in btn"
+        :key="index"
+        v-model="radio"
+        :name="item.label"
+        :value="item.value"
+        @change="updateChart"
+      >
+        {{ item.label }}
+      </b-form-radio>
+    </b-form-group>
+
+    <b-card img-bottom>
+      <ChartLineBase :chart-data="chartData" />
+    </b-card>
+  </b-card>
+  </b-col>
+  
+      <b-col md="4">
+<b-card title="Line">
+    <b-form-group>
+      <b-form-radio
+        v-for="(item, index) in btn"
+        :key="index"
+        v-model="radio"
+        :name="item.label"
+        :value="item.value"
+        @change="updateChart"
+      >
+        {{ item.label }}
+      </b-form-radio>
+    </b-form-group>
+
+    <b-card img-bottom>
+      <ChartLineBase :chart-data="chartData" />
+    </b-card>
+  </b-card>
+  </b-col>
+    </b-row>
     <Nuxt />
   </div>
 </template>
@@ -85,5 +129,7 @@ data() {
 </script>
 
 <style>
-
+.Line{
+  height: 20%;
+}
 </style>
