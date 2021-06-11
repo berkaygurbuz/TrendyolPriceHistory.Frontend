@@ -1,39 +1,58 @@
 <template>
-    <div class="sidebar-container">
-  <div class="sidebar-logo">
-    Price History
+  <div class="sidebar-container">
+    <div class="sidebar-logo">Price History</div>
+    <ul class="sidebar-navigation">
+      <li class="header">Navigation</li>
+      <li>
+        <nuxt-link to="/admin/adminPanel" href="#">
+          <i class="fa fa-home" aria-hidden="true"></i> Homepage
+        </nuxt-link>
+      </li>
+      <li>
+        <nuxt-link to="/admin/TablePage" href="#">
+          <i class="fa fa-tachometer" aria-hidden="true"></i> Requests
+        </nuxt-link>
+      </li>
+                              <li>
+        <nuxt-link to="">
+          <i class="fa fa-users" aria-hidden="true"></i> Statics
+        </nuxt-link>
+      </li>
+
+
+      <li class="header">Products</li>
+            <li>
+        <nuxt-link to="">
+          <i class="fa fa-users" aria-hidden="true"></i>Show Product
+        </nuxt-link>
+      </li>
+            <li>
+        <nuxt-link to="">
+          <i class="fa fa-users" aria-hidden="true"></i> Add New Product
+        </nuxt-link>
+      </li>
+                  <li>
+        <nuxt-link to="">
+          <i class="fa fa-users" aria-hidden="true"></i> Delete Product
+        </nuxt-link>
+      </li>
+
+      <li>
+        <a href="#"> <i class="fa fa-cog" aria-hidden="true"></i> Settings </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fa fa-info-circle" aria-hidden="true"></i> Information
+        </a>
+      </li>
+    </ul>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+      integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
+      crossorigin="anonymous"
+    />
   </div>
-  <ul class="sidebar-navigation">
-    <li class="header">Navigation</li>
-    <li>
-      <nuxt-link to="/adminPanel" href="#">
-        <i class="fa fa-home" aria-hidden="true"></i> Homepage
-      </nuxt-link>
-    </li>
-    <li>
-      <nuxt-link to="/TablePage" href="#">
-        <i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard
-      </nuxt-link>
-    </li>
-    <li class="header">Another Menu</li>
-    <li>
-      <a href="#">
-        <i class="fa fa-users" aria-hidden="true"></i> Friends
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <i class="fa fa-cog" aria-hidden="true"></i> Settings
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <i class="fa fa-info-circle" aria-hidden="true"></i> Information
-      </a>
-    </li>
-  </ul>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-</div>
 </template>
 
 <style scoped>
@@ -47,7 +66,7 @@
   overflow-y: auto;
   background: #1a1a1a;
   color: #fff;
-  font-family: 'Mark Pro',sans-serif;
+  font-family: 'Mark Pro', sans-serif;
 }
 
 .content-container {
@@ -119,5 +138,4 @@
 .sidebar-navigation .header::before {
   background-color: transparent;
 }
-
 </style>

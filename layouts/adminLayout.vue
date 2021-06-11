@@ -4,10 +4,10 @@
 
 <left-navbar></left-navbar>
 
-
 <div class="content-container">
   <div class="container-fluid">
 
+<getStatics></getStatics>
     <h1>Hello world!</h1>
     <b-form>
        <b-form-input
@@ -29,9 +29,11 @@
 <script lang="ts">
 import Vue from 'vue'
 import leftNavbar from "../components/adminPanel/leftNavbar.vue";
+import getStatics from "../components/adminPanel/getStatics.vue";
 export default Vue.extend({
     components:{
-      leftNavbar
+      leftNavbar,
+      getStatics,
     },
 
     data(){

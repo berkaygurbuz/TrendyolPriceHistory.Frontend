@@ -10,7 +10,7 @@ export default {
       options: {
         elements:{
           line:{
-            tension:0.1
+            tension:0.1 
           }
         },
         scales: {
