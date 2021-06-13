@@ -1,5 +1,6 @@
 <template>
-  <b-container fluid class="products-list mt-5">
+  <b-container fluid class="products-list mt-5 my-padding">
+    <h2 class="heading-line text-center">Categories</h2>
     <b-container class="justify-content-center">
       <b-row>
         <b-col md="4">
@@ -49,7 +50,7 @@
 <style scoped>
 .products-list {
   background-color: #f3f6fa;
-  padding: 60px 0 !important;
+  /* padding: 60px 0 !important; */
   margin-top: 8em !important;
 }
 
@@ -135,5 +136,31 @@
   .purple{
     margin-top:2rem!important;
   }
+}
+
+.heading-line{
+    font-family: 'Lato',sans-serif;
+    font-size:2.75rem;
+    font-weight: 400;
+    color:#354A53!important;
+}
+
+.heading-line:after {
+  content: '';
+  display: block;
+  margin-top: 32px;
+  margin-bottom: 50px;
+  width: 60px;
+  height: 2px;
+  background-color: #49267f;
+}
+
+.heading-line:after {
+  margin-left: auto;
+  margin-right: auto;
+}
+.my-padding{
+    padding-top:90px;
+    padding-bottom: 90px;
 }
 </style>
