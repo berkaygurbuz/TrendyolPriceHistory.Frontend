@@ -7,6 +7,7 @@
     
     <ProductCard></ProductCard>
     <Nuxt />
+    <Footer></Footer>
   </div>
 </template>
 
@@ -17,6 +18,7 @@ import Header from '../components/dashboard/header.vue'
 import ProductList from "../components/dashboard/product-list.vue"
 import Chart from "../components/dashboard/chart.vue"
 import ProductCard from "../components/dashboard/product-card.vue";
+import Footer from "../components/dashboard/footer.vue";
 export default Vue.extend({
   
   components: {
@@ -24,7 +26,8 @@ export default Vue.extend({
     Header,
     ProductList,
     Chart,
-    ProductCard
+    ProductCard,
+    Footer,
   },
 });
 </script>

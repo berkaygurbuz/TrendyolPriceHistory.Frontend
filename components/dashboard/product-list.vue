@@ -118,7 +118,7 @@
   background-color: rgba(0, 0, 0, 0.2);
 }
 .snip1174.purple {
-  background-color: #49267f;
+  background-color:#140B5C ;
 }
 .snip1174:hover img,
 .snip1174.hover img {
@@ -142,7 +142,7 @@
     font-family: 'Lato',sans-serif;
     font-size:2.75rem;
     font-weight: 400;
-    color:#354A53!important;
+    color:#140B5C!important;
 }
 
 .heading-line:after {
@@ -152,7 +152,7 @@
   margin-bottom: 50px;
   width: 60px;
   height: 2px;
-  background-color: #49267f;
+  background-color: #140B5C;
 }
 
 .heading-line:after {

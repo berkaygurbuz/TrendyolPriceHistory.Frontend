@@ -137,7 +137,7 @@
 
 .price {
   font-size: 24px;
-  color: #49267f;
+  color: #25178f;
   font-family: 'Lato',sans-serif;
   font-weight: bold
 }
@@ -150,7 +150,7 @@
 .wishlistBtn {
   width: 150px;
   height: 50px;
-  background-color: #49267f;
+  background-color: #140B5C;
   color: white;
   border: none;
   border-radius: 15px;
@@ -168,7 +168,7 @@
 
 .wishlistBtn {
   background-color: #f5f5f5;
-  color: black;
+  color: #140B5C;
   /* bottom: 35%; */
   margin-top: 5em;
 }
@@ -203,7 +203,7 @@
     font-family: 'Lato',sans-serif;
     font-size:2.75rem;
     font-weight: 400;
-    color:#354A53!important;
+    color:#140B5C!important;
 }
 
 .heading-line:after {
@@ -213,7 +213,7 @@
   margin-bottom: 50px;
   width: 60px;
   height: 2px;
-  background-color: #49267f;
+  background-color: #140B5C;
 }
 
 .heading-line:after {
@@ -223,7 +223,7 @@
 
 .productBrand{
     font-family: 'Lato',sans-serif;
-    color:#49267f;
+    color:#25178f;
     font-weight: bold;
 }
 </style>
