@@ -9,7 +9,7 @@
         </nuxt-link>
       </li>
       <li>
-        <nuxt-link to="/admin/TablePage" href="#">
+        <nuxt-link to="/admin/requests" href="#">
           <i class="fa fa-tachometer" aria-hidden="true"></i> Requests
         </nuxt-link>
       </li>
