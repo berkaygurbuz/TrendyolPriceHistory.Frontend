@@ -22,10 +22,12 @@ export default Vue.extend({
     },
     methods:{
         async acceptRequest(){
-            await this.$axios.post('http://localhost:5000/api/acceptRequest',{
+            var myId=this.id;
+            var endpoint="http://localhost:5000/api/acceptRequest/" + myId
+            await this.$axios.put(endpoint,{
                 id:this.id
-            }).then(function(response){
-                console.log("success",response)
+            }).then(res=>{
+                console.log("success",res)
             })
         }
     }

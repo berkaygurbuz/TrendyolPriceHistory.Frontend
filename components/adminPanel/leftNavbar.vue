@@ -76,7 +76,7 @@
 .sidebar-logo {
   padding: 10px 15px 10px 30px;
   font-size: 20px;
-  background-color: #49267f;
+  background-color: #25178f;
 }
 
 .sidebar-navigation {
@@ -112,7 +112,7 @@
 }
 
 .sidebar-navigation li::before {
-  background-color: #00b7b3;
+  background-color: #25178f;
   position: absolute;
   content: '';
   height: 100%;

@@ -7,6 +7,7 @@
 <div class="content-container">
   <div class="container-fluid">
 
+<my-table></my-table>
 <getStatics></getStatics>
     <h1>Hello world!</h1>
     <b-form>
@@ -30,10 +31,12 @@
 import Vue from 'vue'
 import leftNavbar from "../components/adminPanel/leftNavbar.vue";
 import getStatics from "../components/adminPanel/getStatics.vue";
+import table from "../components/adminPanel/table.vue";
 export default Vue.extend({
     components:{
       leftNavbar,
       getStatics,
+      "my-table":table
     },
 
     data(){
