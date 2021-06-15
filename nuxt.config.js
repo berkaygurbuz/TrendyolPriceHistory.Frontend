@@ -1,5 +1,6 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
+  ssr:false,
   head: {
     title: 'PriceHistory.Frontend',
     htmlAttrs: {
@@ -36,11 +37,29 @@ export default {
     '@nuxt/typescript-build',
     'bootstrap-vue/nuxt',
   ],
+  
+  primevue: {
+    theme: "saga-blue",
+    ripple: true,
+    components: [
+        "InputText",
+        "Button",
+        "DataTable",
+        "Column",
+        "ColumnGroup",
+        "MultiSelect",
+        "Calendar",
+        "Dropdown",
+        "ProgressBar"
+    ]
+},
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    'primevue/nuxt'
   ],
+
 
   axios:{
 
