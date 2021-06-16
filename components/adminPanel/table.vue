@@ -26,8 +26,8 @@
         <template #filter>
           <InputText
             type="text"
-            v-model="filters['id']"
-            @keydown.enter="onFilter($event)"
+            v-model="searchedId"
+            @keyup.enter="searchId()"
             class="p-column-filter"
             placeholder="Search by ID"
           />
@@ -43,7 +43,7 @@
         <template #filter>
           <InputText
             type="text"
-            v-model="filters['name']"
+            v-model="searchedName"
             @keydown.enter="onFilter($event)"
             class="p-column-filter"
             placeholder="Search by name"
@@ -56,35 +56,19 @@
         filterField="price"
         filterMatchMode="contains"
         ref="price"
-        :sortable="true"
+        :sortable="false"
       >
-        tl
-        <template #filter>
-          <InputText
-            type="text"
-            v-model="filters['price']"
-            @keydown.enter="onFilter($event)"
-            class="p-column-filter"
-            placeholder="Search by name"
-          />
-        </template>
+       
+
       </Column>
       <Column
         field="isApprove"
         header="isApprove"
         filterMatchMode="contains"
         ref="isApprove"
-        :sortable="true"
+        :sortable="false"
       >
-        <template #filter>
-          <InputText
-            type="text"
-            v-model="filters['isApprove']"
-            @keydown.enter="onFilter($event)"
-            class="p-column-filter"
-            placeholder="Search by name"
-          />
-        </template>
+
       </Column>
     </DataTable>
   </div>
@@ -111,14 +95,11 @@ export default Vue.extend({
         { field: 'price', header: 'Price' },
         { field: 'isApprove', header: 'isApprove' },
       ],
+      searchedName:"",
+      searchedId:"",
+
     }
   },
-
-  // this.$axios.get('http://localhost:5000/api/getAllProducts').then((res) => {
-  //   this.customers = res.data
-  //   this.loading = false
-  //   console.warn(res.data)
-  // })
 
   mounted() {
     this.lazyParams = {
@@ -157,9 +138,34 @@ export default Vue.extend({
       this.lazyParams = event
       this.onLazyEvent()
     },
-    onFilter() {
+
+   
+    async searchId(){
       this.lazyParams.first = 0
-      this.onLazyEvent()
+      this.loading=true;
+      let endpoint="http://localhost:5000/api/getProduct?id="+this.searchedId;
+      
+      console.log("searched name :",this.searchedId)
+      await this.$axios.get(endpoint,{
+      }).then(res=>{
+        this.customers=res.data;
+          this.totalRecords = res.data.length
+          console.log("customers : ",this.customers);
+        this.loading=false;
+      })
+    },
+    async onFilter() {
+      this.lazyParams.first = 0
+      this.loading=true;
+      let endpoint="http://localhost:5000/api/getProductBySearch?search="+this.searchedName;
+      
+      console.log("searched name :",this.searchedName)
+      await this.$axios.get(endpoint,{
+      }).then(res=>{
+        this.customers=res.data;
+          this.totalRecords = res.data.length
+        this.loading=false;
+      })
     },
   },
 })
