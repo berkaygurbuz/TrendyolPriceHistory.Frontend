@@ -33,6 +33,7 @@ import leftNavbar from "../components/adminPanel/leftNavbar.vue";
 import getStatics from "../components/adminPanel/getStatics.vue";
 import table from "../components/adminPanel/table.vue";
 export default Vue.extend({
+    middleware: ["auth"],
     components:{
       leftNavbar,
       getStatics,

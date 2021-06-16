@@ -82,7 +82,7 @@ export default {
             endpoints: {
                     user:false,
             },
-            clientId: "44mdcduf5kj7knccvtgq6cug5j",
+            clientId: "438a4ndh93ksl1i7g78rjtcl11",
             scope: ["email", "openid", "profile"]
         }
     },

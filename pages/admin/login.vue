@@ -1,219 +1,266 @@
 <template>
- <div class="container">
-	<div class="screen">
-		<div class="screen__content">
-			<form class="login">
-				<div class="login__field">
-					<i class="login__icon fas fa-user"></i>
-					<input type="text" class="login__input" placeholder="User name / Email">
-				</div>
-				<div class="login__field">
-					<i class="login__icon fas fa-lock"></i>
-					<input type="password" class="login__input" placeholder="Password">
-				</div>
-				<button class="button login__submit">
-					<span class="button__text">Log In Now</span>
-					<i class="button__icon fas fa-chevron-right"></i>
-				</button>				
-			</form>
-
-		</div>
-		<div class="screen__background">
-			<span class="screen__background__shape screen__background__shape4"></span>
-			<span class="screen__background__shape screen__background__shape3"></span>		
-			<span class="screen__background__shape screen__background__shape2"></span>
-			<span class="screen__background__shape screen__background__shape1"></span>
-		</div>		
-	</div>
-</div>
+  <div class="container">
+    <div class="screen">
+      <div class="screen__content">
+        <form class="login">
+          <div class="login__field">
+            <i class="login__icon fas fa-user"></i>
+            <input
+              v-model="username"
+              type="text"
+              class="login__input"
+              placeholder="User name / Email"
+            />
+          </div>
+          <div class="login__field">
+            <i class="login__icon fas fa-lock"></i>
+            <input
+              v-model="password"
+              type="password"
+              class="login__input"
+              placeholder="Password"
+            />
+          </div>
+          <button @click="login" class="button login__submit">
+            <span class="button__text">Log In</span>
+            <i class="button__icon fas fa-chevron-right"></i>
+          </button>
+        </form>
+      </div>
+      <div class="screen__background">
+        <span
+          class="screen__background__shape screen__background__shape4"
+        ></span>
+        <span
+          class="screen__background__shape screen__background__shape3"
+        ></span>
+        <span
+          class="screen__background__shape screen__background__shape2"
+        ></span>
+        <span
+          class="screen__background__shape screen__background__shape1"
+        ></span>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
-
 import Vue from 'vue'
+import { Auth } from 'aws-amplify'
 export default Vue.extend({
-    layout:"empty"
-})
+  layout: 'empty',
+  data() {
+    return {
+      username: '',
+      password: '',
+    }
+  },
 
+  methods: {
+    async login(event) {
+      try {
+        await event.preventDefault()
+        let response = await Auth.signIn(this.username, this.password)
+
+        console.log('user : ', response.attributes)
+        this.$auth.setUserToken(response.signInUserSession.accessToken.jwtToken)
+        this.$auth.strategy.token.set(
+          'Bearer ' + response.signInUserSession.accessToken.jwtToken
+        )
+        this.$auth.setUser(response.attributes)
+        this.$auth.strategy.token.get()
+        this.$router.push('/admin/adminPanel')
+      } catch (e) {
+        console.log('error : ', e)
+      }
+    },
+  },
+
+
+})
 </script>
 
 <style >
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
 
-* {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;	
-	font-family: Raleway, sans-serif;
-}
-
-body {
-	background: linear-gradient(to left top, #140b5c, #05438d, #2377b5, #5cadd8, #9ee2f8);
-}
-
 .container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
 
-.screen {		
-	background:linear-gradient(to left top, #140b5c, #05438d, #2377b5, #5cadd8, #9ee2f8);	
-	position: relative;	
-	height: 600px;
-	width: 360px;	
-	box-shadow: 0px 0px 24px #140B5C;
+.screen {
+  background: linear-gradient(
+    to left top,
+    #140b5c,
+    #05438d,
+    #2377b5,
+    #5cadd8,
+    #9ee2f8
+  );
+  position: relative;
+  height: 600px;
+  width: 360px;
+  box-shadow: 0px 0px 24px #140b5c;
 }
 
 .screen__content {
-	z-index: 1;
-	position: relative;	
-	height: 100%;
+  z-index: 1;
+  position: relative;
+  height: 100%;
 }
 
-.screen__background {		
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	z-index: 0;
-	-webkit-clip-path: inset(0 0 0 0);
-	clip-path: inset(0 0 0 0);	
+.screen__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  -webkit-clip-path: inset(0 0 0 0);
+  clip-path: inset(0 0 0 0);
 }
 
 .screen__background__shape {
-	transform: rotate(45deg);
-	position: absolute;
+  transform: rotate(45deg);
+  position: absolute;
 }
 
 .screen__background__shape1 {
-	height: 520px;
-	width: 520px;
-	background: #FFF;	
-	top: -50px;
-	right: 120px;	
-	border-radius: 0 72px 0 0;
+  height: 520px;
+  width: 520px;
+  background: #fff;
+  top: -50px;
+  right: 120px;
+  border-radius: 0 72px 0 0;
 }
 
 .screen__background__shape2 {
-	height: 220px;
-	width: 220px;
-	background: #3C2CB7;	
-	top: -172px;
-	right: 0;	
-	border-radius: 32px;
+  height: 220px;
+  width: 220px;
+  background: #3c2cb7;
+  top: -172px;
+  right: 0;
+  border-radius: 32px;
 }
 
 .screen__background__shape3 {
-	height: 540px;
-	width: 190px;
-	background: linear-gradient(to left top, #140b5c, #20147f, #2c1da5, #3926cc, #4730f4);
-	top: -24px;
-	right: 0;	
-	border-radius: 32px;
+  height: 540px;
+  width: 190px;
+  background: linear-gradient(
+    to left top,
+    #140b5c,
+    #20147f,
+    #2c1da5,
+    #3926cc,
+    #4730f4
+  );
+  top: -24px;
+  right: 0;
+  border-radius: 32px;
 }
 
 .screen__background__shape4 {
-	height: 400px;
-	width: 200px;
-	background: #DEF1F7;	
-	top: 420px;
-	right: 50px;	
-	border-radius: 60px;
+  height: 400px;
+  width: 200px;
+  background: #def1f7;
+  top: 420px;
+  right: 50px;
+  border-radius: 60px;
 }
 
 .login {
-	width: 320px;
-	padding: 30px;
-	padding-top: 156px;
+  width: 320px;
+  padding: 30px;
+  padding-top: 156px;
 }
 
 .login__field {
-	padding: 20px 0px;	
-	position: relative;	
+  padding: 20px 0px;
+  position: relative;
 }
 
 .login__icon {
-	position: absolute;
-	top: 30px;
-	color: #7875B5;
+  position: absolute;
+  top: 30px;
+  color: #7875b5;
 }
 
 .login__input {
-	border: none;
-	border-bottom: 2px solid #D1D1D4;
-	background: none;
-	padding: 10px;
-	padding-left: 24px;
-	font-weight: 700;
-	width: 75%;
-	transition: .2s;
+  border: none;
+  border-bottom: 2px solid #d1d1d4;
+  background: none;
+  padding: 10px;
+  padding-left: 24px;
+  font-weight: 700;
+  width: 75%;
+  transition: 0.2s;
 }
 
 .login__input:active,
 .login__input:focus,
 .login__input:hover {
-	outline: none;
-	border-bottom-color: #6A679E;
+  outline: none;
+  border-bottom-color: #6a679e;
 }
 
 .login__submit {
-	background: #fff;
-	font-size: 14px;
-	margin-top: 30px;
-	padding: 16px 20px;
-	border-radius: 26px;
-	border: 1px solid #D4D3E8;
-	text-transform: uppercase;
-	font-weight: 700;
-	display: flex;
-	align-items: center;
-	width: 100%;
-	color: #25178f;
-	box-shadow: 0px 2px 2px #140B5C;
-	cursor: pointer;
-	transition: .2s;
+  background: #fff;
+  font-size: 14px;
+  margin-top: 30px;
+  padding: 16px 20px;
+  border-radius: 26px;
+  border: 1px solid #d4d3e8;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: #25178f;
+  box-shadow: 0px 2px 2px #140b5c;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
 .login__submit:active,
 .login__submit:focus,
 .login__submit:hover {
-	border-color: #6A679E;
-	outline: none;
+  border-color: #6a679e;
+  outline: none;
 }
 
 .button__icon {
-	font-size: 24px;
-	margin-left: auto;
-	color: #7875B5;
+  font-size: 24px;
+  margin-left: auto;
+  color: #7875b5;
 }
 
-.social-login {	
-	position: absolute;
-	height: 140px;
-	width: 160px;
-	text-align: center;
-	bottom: 0px;
-	right: 0px;
-	color: #fff;
+.social-login {
+  position: absolute;
+  height: 140px;
+  width: 160px;
+  text-align: center;
+  bottom: 0px;
+  right: 0px;
+  color: #fff;
 }
 
 .social-icons {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .social-login__icon {
-	padding: 20px 10px;
-	color: #fff;
-	text-decoration: none;	
-	text-shadow: 0px 0px 8px #7875B5;
+  padding: 20px 10px;
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 0px 0px 8px #7875b5;
 }
 
 .social-login__icon:hover {
-	transform: scale(1.5);	
+  transform: scale(1.5);
 }
 </style>
