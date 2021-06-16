@@ -9,7 +9,9 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.13.1",
+    "@nuxtjs/auth-next": "5.0.0-1622918202.e815752",
+    "@nuxtjs/axios": "^5.13.6",
+    "aws-amplify": "^4.1.0",
     "bootstrap-vue": "^2.21.2",
     "chart.js": "^2.9.4",
     "core-js": "^3.9.1",
@@ -24,6 +26,7 @@
     "@nuxt/typescript-build": "^2.1.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.3.1",
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "sass-loader": "^10.2.0"
   }
 }

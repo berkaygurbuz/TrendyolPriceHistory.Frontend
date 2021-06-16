@@ -25,6 +25,7 @@ export default {
   plugins: [
     {
       src:"~/plugins/ChartLineBase.js",
+      src:"~/plugins/amplify.ts"
     }
   ],
 
@@ -57,7 +58,8 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/axios',
-    'primevue/nuxt'
+    'primevue/nuxt',
+    '@nuxtjs/auth-next'
   ],
 
 
@@ -68,5 +70,29 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     
-  }
+  },
+
+  auth: {
+    strategies: {
+        local: {
+            token: {
+                property: "access_token",
+                type: "Bearer"
+            },
+            endpoints: {
+                    user:false,
+            },
+            clientId: "44mdcduf5kj7knccvtgq6cug5j",
+            scope: ["email", "openid", "profile"]
+        }
+    },
+    redirect: {
+        home: "/admin/AdminPanel",
+        login: "/admin/login",
+        logout: "/admin/login"
+    }
+},
+
+
+
 }

@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-trendyolpricehistory-dev-175024-authRole",
+      "UnauthRoleArn": "arn:aws:iam::798716445478:role/amplify-trendyolpricehistory-dev-175024-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::798716445478:role/amplify-trendyolpricehistory-dev-175024-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-trendyolpricehistory-dev-175024-deployment",
+      "UnauthRoleName": "amplify-trendyolpricehistory-dev-175024-unauthRole",
+      "StackName": "amplify-trendyolpricehistory-dev-175024",
+      "StackId": "arn:aws:cloudformation:eu-central-1:798716445478:stack/amplify-trendyolpricehistory-dev-175024/30d07340-ceb2-11eb-9b98-06ff1f622540",
+      "AmplifyAppId": "d1juhynkjs9a57"
+    },
+    "categories": {
+      "auth": {
+        "trendyolpricehistoryad2f5fa6": {}
+      }
+    }
+  }
+}
