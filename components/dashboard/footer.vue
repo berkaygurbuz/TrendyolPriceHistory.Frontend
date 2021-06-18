@@ -18,9 +18,9 @@
     <div class="link-boxes">
       <ul class="box">
         <li class="link_name">Price History</li>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Discounts</a></li>
-        <li><a href="#">Products</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/app/discounts">Discounts</a></li>
+        <li><a href="/app/products">Products</a></li>
         <li><a href="#">About Us</a></li>
       </ul>
       <ul class="box">

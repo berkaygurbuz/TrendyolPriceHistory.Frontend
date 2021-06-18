@@ -1,5 +1,5 @@
 <template>
-  
+  <h2>Welcome to Admin Dashboard</h2>
 </template>
 
 <script lang="ts">

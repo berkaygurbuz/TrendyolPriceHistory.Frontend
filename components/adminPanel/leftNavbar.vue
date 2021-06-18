@@ -27,7 +27,7 @@
         </nuxt-link>
       </li>
             <li>
-        <nuxt-link to="">
+        <nuxt-link to="/admin/addProduct">
           <i class="fa fa-users" aria-hidden="true"></i> Add New Product
         </nuxt-link>
       </li>

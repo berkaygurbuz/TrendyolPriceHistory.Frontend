@@ -10,15 +10,15 @@
                             <a href="#">T-Shirts</a>
                         </li>
                         <li>
-                            <a>
+                            <a href="#">
                                 Sweatshirts
                             </a>
                         </li>
-                        <li><a>Blouse</a></li>
+                        <li><a href="#">Blouse</a></li>
                     </ul>
                 </div>
             </div>
-             <input class="my-input" type="arama" name="text" placeholder="Kelime,ilan no ile ara" required="">
+             <input class="my-input" type="arama" name="text" placeholder="Find cheapest price of products!" required="">
                  <button type="submit" class="my-btn ">Search</button>
 
     </div>

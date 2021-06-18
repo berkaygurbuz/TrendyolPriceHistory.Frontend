@@ -10,7 +10,7 @@
       <b-button @click="acceptRequest" variant="success"> Accept </b-button>
     </b-form> -->
     <div>
-        
+        <h2>Request</h2>
     </div>
 </template>
 

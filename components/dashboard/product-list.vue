@@ -48,6 +48,9 @@
 </template>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('http://fonts.cdnfonts.com/css/mark-pro');
+
 .products-list {
   background-color: #f3f6fa;
   /* padding: 60px 0 !important; */
