@@ -10,30 +10,34 @@
       </li>
       <li>
         <nuxt-link to="/admin/requests" href="#">
-          <i class="fa fa-tachometer" aria-hidden="true"></i> Requests
+          <i class="fa fa-file-alt" aria-hidden="true"></i> Requests
         </nuxt-link>
       </li>
-                              <li>
+      <li>
         <nuxt-link to="">
           <i class="fa fa-users" aria-hidden="true"></i> Statics
         </nuxt-link>
       </li>
 
-
       <li class="header">Products</li>
-            <li>
+      <li>
         <nuxt-link to="/admin/showProduct">
-          <i class="fa fa-users" aria-hidden="true"></i>Show Product
+          <i class="fa fa-list-ul" aria-hidden="true"></i>Show Product
+        </nuxt-link>
+      </li>
+      <li>
+        <nuxt-link to="/admin/addProduct">
+          <i class="fa fa-edit" aria-hidden="true"></i> Add New Product
         </nuxt-link>
       </li>
             <li>
-        <nuxt-link to="/admin/addProduct">
-          <i class="fa fa-users" aria-hidden="true"></i> Add New Product
+        <nuxt-link to="/admin/updateProduct">
+          <i class="fa fa-hammer" aria-hidden="true"></i> Update Product
         </nuxt-link>
       </li>
-                  <li>
+      <li>
         <nuxt-link to="/admin/deleteProduct">
-          <i class="fa fa-users" aria-hidden="true"></i> Delete Product
+          <i class="fa fa-trash-alt" aria-hidden="true"></i> Delete Product
         </nuxt-link>
       </li>
 

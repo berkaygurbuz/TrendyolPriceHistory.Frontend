@@ -9,15 +9,20 @@
       ></b-form-input>
       <b-button @click="acceptRequest" variant="success"> Accept </b-button>
     </b-form> -->
-    <div>
+    <b-container fluid>
         <h2>Request</h2>
-    </div>
+        <AcceptTable></AcceptTable>
+    </b-container>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import AcceptTable from "../../components/adminPanel/table/accept-table.vue"
 export default Vue.extend({
     layout:"adminLayout",
+    components:{
+        AcceptTable
+    },
     data(){
         return{
             id:"",

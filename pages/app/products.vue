@@ -1,7 +1,7 @@
 <template>
-<b-container>
+  <b-container>
     <h2>Product Page</h2>
-    </b-container>
+  </b-container>
 </template>
 
 <script lang="ts">

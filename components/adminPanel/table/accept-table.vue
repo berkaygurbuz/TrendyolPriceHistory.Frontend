@@ -19,15 +19,7 @@
         ref="id"
         :sortable="false"
       >
-        <template #filter>
-          <InputText
-            type="text"
-            v-model="searchedName"
-            @keydown.enter="onFilter($event)"
-            class="p-column-filter"
-            placeholder="Search by name"
-          />
-        </template>
+
       </Column>
       <Column
         field="name"
@@ -37,15 +29,7 @@
         :sortable="false"
       >
       </Column>
-      <Column
-        field="price"
-        header="Price"
-        filterField="price"
-        filterMatchMode="contains"
-        ref="price"
-        :sortable="false"
-      >
-      </Column>
+
       <Column
         field="isApprove"
         header="isApprove"
@@ -54,13 +38,14 @@
         :sortable="false"
       >
       </Column>
-      <Column header="Delete" ref="delete">
+      <Column ref="accept"
+      header="Accept">
         <template #body="slotProps">
           <b-button
             type="button"
-            variant="danger"
-            @click="deleteById(slotProps.data.id)"
-            > <i class="fa fa-trash-alt" aria-hidden="true" style="font-size: 1.5rem"></i></b-button
+            variant="success"
+            @click="acceptById(slotProps.data.id)"
+            ><i class="fas fa-check-circle" style="font-size:1.5rem"></i></b-button
           >
         </template>
       </Column>
@@ -86,7 +71,6 @@ export default Vue.extend({
       columns: [
         { field: 'id', header: 'ID' },
         { field: 'name', header: 'Name' },
-        { field: 'price', header: 'Price' },
         { field: 'isApprove', header: 'isApprove' },
       ],
       searchedName: '',
@@ -108,7 +92,7 @@ export default Vue.extend({
     async onLazyEvent() {
       this.loading = true
 
-      await this.$axios.get('/getAllProducts').then((res) => {
+      await this.$axios.get('/getRequests').then((res) => {
         this.customers = res.data
         this.totalRecords = res.data.length
         this.loading = false
@@ -125,25 +109,14 @@ export default Vue.extend({
       console.log('event', event)
       this.lazyParams = event
     },
-   async deleteById(id) {
+   async acceptById(id) {
        this.loading=true;
-      let endpoint="/deleteById?id="+id;
-    await this.$axios.delete(endpoint,{}).then(res=>{
+      let endpoint="/acceptRequest/"+id;
+    await this.$axios.put(endpoint,{}).then(res=>{
         this.onLazyEvent();
     })
     },
-    async onFilter() {
-      this.lazyParams.first = 0
-      this.loading = true
-      let endpoint = '/getProductBySearch?search=' + this.searchedName
 
-      console.log('searched name :', this.searchedName)
-      await this.$axios.get(endpoint, {}).then((res) => {
-        this.customers = res.data
-        this.totalRecords = res.data.length
-        this.loading = false
-      })
-    },
   },
 })
 </script>
