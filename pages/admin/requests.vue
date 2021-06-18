@@ -1,5 +1,5 @@
 <template>
-        <b-form>
+        <!-- <b-form>
       <b-form-input
         id="input-1"
         v-model="id"
@@ -8,7 +8,10 @@
         required
       ></b-form-input>
       <b-button @click="acceptRequest" variant="success"> Accept </b-button>
-    </b-form>
+    </b-form> -->
+    <div>
+        
+    </div>
 </template>
 
 <script lang="ts">
@@ -21,15 +24,15 @@ export default Vue.extend({
         }
     },
     methods:{
-        async acceptRequest(){
-            var myId=this.id;
-            var endpoint="http://localhost:5000/api/acceptRequest/" + myId
-            await this.$axios.put(endpoint,{
-                id:this.id
-            }).then(res=>{
-                console.log("success",res)
-            })
-        }
+        // async acceptRequest(){
+        //     var myId=this.id;
+        //     var endpoint="http://localhost:5000/api/acceptRequest/" + myId
+        //     await this.$axios.put(endpoint,{
+        //         id:this.id
+        //     }).then(res=>{
+        //         console.log("success",res)
+        //     })
+        // }
     }
 })
 </script>

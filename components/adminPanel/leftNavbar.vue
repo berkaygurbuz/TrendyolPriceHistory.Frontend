@@ -22,7 +22,7 @@
 
       <li class="header">Products</li>
             <li>
-        <nuxt-link to="">
+        <nuxt-link to="/admin/showProduct">
           <i class="fa fa-users" aria-hidden="true"></i>Show Product
         </nuxt-link>
       </li>
@@ -32,7 +32,7 @@
         </nuxt-link>
       </li>
                   <li>
-        <nuxt-link to="">
+        <nuxt-link to="/admin/deleteProduct">
           <i class="fa fa-users" aria-hidden="true"></i> Delete Product
         </nuxt-link>
       </li>

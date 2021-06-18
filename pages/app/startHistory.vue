@@ -25,7 +25,7 @@ export default Vue.extend({
     },
     methods:{
       async onClickSave(){
-        await this.$axios.post('http://localhost:5000/api/createProduct',{
+        await this.$axios.post('/createProduct',{
           name:this.name,
           
         }).then(function (response){

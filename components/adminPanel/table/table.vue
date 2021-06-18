@@ -21,24 +21,7 @@
         header="ID"
         filterMatchMode="startsWith"
         ref="id"
-        :sortable="true"
-      >
-        <template #filter>
-          <InputText
-            type="text"
-            v-model="searchedId"
-            @keyup.enter="searchId()"
-            class="p-column-filter"
-            placeholder="Search by ID"
-          />
-        </template>
-      </Column>
-      <Column
-        field="name"
-        header="Name"
-        filterMatchMode="startsWith"
-        ref="name"
-        :sortable="true"
+        :sortable="false"
       >
         <template #filter>
           <InputText
@@ -51,6 +34,15 @@
         </template>
       </Column>
       <Column
+        field="name"
+        header="Name"
+        filterMatchMode="startsWith"
+        ref="name"
+        :sortable="false"
+      >
+
+      </Column>
+      <Column
         field="price"
         header="Price"
         filterField="price"
@@ -58,8 +50,6 @@
         ref="price"
         :sortable="false"
       >
-       
-
       </Column>
       <Column
         field="isApprove"
@@ -68,8 +58,8 @@
         ref="isApprove"
         :sortable="false"
       >
-
       </Column>
+
     </DataTable>
   </div>
 </template>
@@ -95,9 +85,8 @@ export default Vue.extend({
         { field: 'price', header: 'Price' },
         { field: 'isApprove', header: 'isApprove' },
       ],
-      searchedName:"",
-      searchedId:"",
-
+      searchedName: '',
+      searchedId: '',
     }
   },
 
@@ -116,7 +105,7 @@ export default Vue.extend({
       this.loading = true
 
       await this.$axios
-        .get('http://localhost:5000/api/getAllProducts')
+        .get('/getAllProducts')
         .then((res) => {
           this.customers = res.data
           this.totalRecords = res.data.length
@@ -125,7 +114,7 @@ export default Vue.extend({
         })
     },
     onPage(event) {
-      let endpoint = 'http://localhost:5000/api/getByPage/'
+      let endpoint = '/getByPage/'
       let page = event.page
       endpoint = endpoint + page
       this.$axios.get(endpoint).then((res) => {
@@ -134,37 +123,18 @@ export default Vue.extend({
       console.log('event', event)
       this.lazyParams = event
     },
-    onSort(event) {
-      this.lazyParams = event
-      this.onLazyEvent()
-    },
-
-   
-    async searchId(){
-      this.lazyParams.first = 0
-      this.loading=true;
-      let endpoint="http://localhost:5000/api/getProduct?id="+this.searchedId;
-      
-      console.log("searched name :",this.searchedId)
-      await this.$axios.get(endpoint,{
-      }).then(res=>{
-        this.customers=res.data;
-          this.totalRecords = res.data.length
-          console.log("customers : ",this.customers);
-        this.loading=false;
-      })
-    },
     async onFilter() {
       this.lazyParams.first = 0
-      this.loading=true;
-      let endpoint="http://localhost:5000/api/getProductBySearch?search="+this.searchedName;
-      
-      console.log("searched name :",this.searchedName)
-      await this.$axios.get(endpoint,{
-      }).then(res=>{
-        this.customers=res.data;
-          this.totalRecords = res.data.length
-        this.loading=false;
+      this.loading = true
+      let endpoint =
+        '/getProductBySearch?search=' +
+        this.searchedName
+
+      console.log('searched name :', this.searchedName)
+      await this.$axios.get(endpoint, {}).then((res) => {
+        this.customers = res.data
+        this.totalRecords = res.data.length
+        this.loading = false
       })
     },
   },

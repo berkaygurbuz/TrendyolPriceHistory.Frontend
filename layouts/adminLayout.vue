@@ -7,8 +7,8 @@
 <div class="content-container">
   <div class="container-fluid">
 
-<my-table></my-table>
-<getStatics></getStatics>
+<!-- <my-table></my-table> -->
+<!-- <getStatics></getStatics>
     <h1>Hello world!</h1>
     <b-form>
        <b-form-input
@@ -19,7 +19,7 @@
           required
         ></b-form-input>
 <b-button @click="onClickSave"> Save </b-button>
-    </b-form>
+    </b-form> -->
     <Nuxt />
   </div>
 </div>
@@ -31,7 +31,7 @@
 import Vue from 'vue'
 import leftNavbar from "../components/adminPanel/leftNavbar.vue";
 import getStatics from "../components/adminPanel/getStatics.vue";
-import table from "../components/adminPanel/table.vue";
+import table from "../components/adminPanel/table/table.vue";
 export default Vue.extend({
     middleware: ["auth"],
     components:{
@@ -48,7 +48,7 @@ export default Vue.extend({
     },
     methods:{
       async onClickSave(){
-        await this.$axios.post('http://localhost:5000/api/createProduct',{
+        await this.$axios.post('/createProduct',{
           name:this.name,
           
         }).then(function (response){

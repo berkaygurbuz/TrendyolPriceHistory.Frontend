@@ -9,7 +9,7 @@ import Vue from 'vue'
 export default Vue.extend({
     methods:{
         async fetchPriceHistory(){
-            await this.$axios.get('http://localhost:5000/api/savePriceHistory').then(res=>{
+            await this.$axios.get('/savePriceHistory').then(res=>{
                 console.log("response : ",res)
             })
         }
