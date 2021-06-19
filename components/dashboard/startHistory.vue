@@ -6,7 +6,7 @@
     <b-form class="my-form">
       <b-form-input
         id="input-1"
-        v-model="name"
+        v-model="linkUrl"
         type="text"
         placeholder="Enter product link want to start price history"
         required
@@ -26,14 +26,13 @@ import Vue from 'vue'
 export default Vue.extend({
      data(){
       return{
-        name:"",
-        price:"",
+        linkUrl:"",
       }
     },
     methods:{
       async onClickSave(){
         await this.$axios.post('/createProduct',{
-          name:this.name,
+          linkUrl:this.linkUrl,
           
         }).then(function (response){
           console.log("succes");

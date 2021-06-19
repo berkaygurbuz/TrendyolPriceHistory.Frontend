@@ -21,14 +21,46 @@
       >
       </Column>
       <Column
-        field="name"
-        header="Name"
+        field="brand"
+        header="Brand"
         filterMatchMode="startsWith"
-        ref="name"
+        ref="brand"
         :sortable="false"
       >
       </Column>
-
+      <Column
+        field="model"
+        header="Model"
+        filterMatchMode="startsWith"
+        ref="model"
+        :sortable="false"
+      >
+      </Column>
+      <Column
+        field="category"
+        header="Category"
+        filterMatchMode="startsWith"
+        ref="category"
+        :sortable="false"
+      >
+      </Column>
+      <Column
+        field="gender"
+        header="Gender"
+        filterMatchMode="startsWith"
+        ref="gender"
+        :sortable="false"
+      >
+      </Column>
+      <Column
+        field="price"
+        header="Price"
+        filterField="price"
+        filterMatchMode="contains"
+        ref="price"
+        :sortable="false"
+      >
+      </Column>
       <Column
         field="isApprove"
         header="isApprove"
@@ -65,11 +97,41 @@
   <div v-else>
     <b-container>
       <form>
-        <h5>Name</h5>
+        <h5 class="mt-2">Product Link</h5>
         <b-input
-          v-model="temporaryData.name"
-          placeholder="Name"
-          :value="this.temporaryData.name"
+          class="mx-auto"
+          placeholder="Product Link"
+          v-model="temporaryData.linkUrl"
+        ></b-input>
+        <h5 class="mt-2">Brand</h5>
+        <b-input
+          class="mx-auto"
+          placeholder="Brand"
+          v-model="temporaryData.brand"
+        ></b-input>
+        <h5 class="mt-2">Model</h5>
+        <b-input
+          class="mx-auto"
+          placeholder="Model"
+          v-model="temporaryData.model"
+        ></b-input>
+        <h5 class="mt-2">Category</h5>
+        <b-input
+          class="mx-auto"
+          placeholder="Category"
+          v-model="temporaryData.category"
+        ></b-input>
+        <h5 class="mt-2">Gender</h5>
+        <b-input
+          class="mx-auto"
+          placeholder="Gender"
+          v-model="temporaryData.gender"
+        ></b-input>
+        <h5 class="mt-2">Image URL</h5>
+        <b-input
+          class="mx-auto"
+          placeholder="Image URL"
+          v-model="temporaryData.imageUrl"
         ></b-input>
         <div class="text-center mt-3">
           <b-button @click="updateProduct" variant="info">Update</b-button>
@@ -91,7 +153,12 @@ export default Vue.extend({
       update: false,
 
       temporaryData: {
-        name: '',
+        linkUrl: '',
+        brand: '',
+        model: '',
+        category: '',
+        gender: '',
+        imageUrl: '',
       },
       data: {},
       loading: false,
@@ -101,7 +168,11 @@ export default Vue.extend({
       lazyParams: {},
       columns: [
         { field: 'id', header: 'ID' },
-        { field: 'name', header: 'Name' },
+        { field: 'brand', header: 'Brand' },
+        { field: 'model', header: 'Model' },
+        { field: 'category', header: 'Category' },
+        { field: 'gender', header: 'Gender' },
+        { field: 'price', header: 'Price' },
         { field: 'isApprove', header: 'isApprove' },
       ],
       searchedName: '',
@@ -145,39 +216,38 @@ export default Vue.extend({
       this.update = true
       this.temporaryData = data
       console.log('temporary data = ', this.temporaryData)
-      //   let endpoint = '/acceptRequest/' + id
-      //   await this.$axios.put(endpoint, {}).then((res) => {
-      //     this.onLazyEvent()
-      //   })
     },
-    async changeTrueById(data){
-        this.loading=true;
-        console.log("data : ",data);
-        if(data.isApprove==false){
-            let endpoint="/acceptRequest/"+data.id
-            await this.$axios.put(endpoint,{}).then(res=>{
-                this.onLazyEvent();
-                
-            })
-        }
+    async changeTrueById(data) {
+      this.loading = true
+      console.log('data : ', data)
+      if (data.isApprove == false) {
+        let endpoint = '/acceptRequest/' + data.id
+        await this.$axios.put(endpoint, {}).then((res) => {
+          this.onLazyEvent()
+        })
+      }
     },
-    async changeFalseById(data){
-        this.loading=true;
-        console.log("data : ",data);
-        if(data.isApprove==true){
-            let endpoint="/acceptRequest/"+data.id
-            await this.$axios.put(endpoint,{}).then(res=>{
-                this.onLazyEvent();
-                
-            })
-        }
+    async changeFalseById(data) {
+      this.loading = true
+      console.log('data : ', data)
+      if (data.isApprove == true) {
+        let endpoint = '/acceptRequest/' + data.id
+        await this.$axios.put(endpoint, {}).then((res) => {
+          this.onLazyEvent()
+        })
+      }
     },
     async updateProduct() {
       console.log('update içi : ', this.temporaryData.name)
       await this.$axios
         .put('/updateProduct', {
           id: this.temporaryData.id,
-          name: this.temporaryData.name,
+          linkUrl: this.temporaryData.linkUrl,
+          brand: this.temporaryData.brand,
+          model: this.temporaryData.model,
+          category: this.temporaryData.category,
+          gender: this.temporaryData.gender,
+          imageUrl: this.temporaryData.imageUrl,
         })
         .then((res) => {
           this.update = false

@@ -1,7 +1,22 @@
 <template>
   <div>
     <b-container class="my-padding">
-        <h2 class="heading-line text-center">Most Seller Products</h2>
+        <MultiSelect v-model="selectedCars" :options="gender" optionLabel="name" placeholder="Select Gender" />
+<MultiSelect v-model="selectedCars" :options="gender" optionLabel="name" placeholder="Categories" :filter="true" class="multiselect-custom">
+    <template #value="slotProps">
+        <div class="country-item country-item-value" v-for="option of slotProps.value" :key="option.code">
+            <div>{{option.name}}</div>
+        </div>
+        <template v-if="!slotProps.value || slotProps.value.length === 0">
+            Select Categories
+        </template>
+    </template>
+    <template #option="slotProps">
+        <div class="country-item">
+            <div>{{slotProps.option.name}}</div>
+        </div>
+    </template>
+</MultiSelect>
       <b-row>
         <b-col md="4" v-for="item in products" :key="item.id">
           <div class="my-container mt-5">
@@ -44,9 +59,19 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import MultiSelect from 'primevue/multiselect';
 export default Vue.extend({
+    components:{
+        MultiSelect
+    },
   data(){
     return{
+        selectedCars: null,
+		gender: [
+			{name: 'Man', value: 'Erkek'},
+			{name: 'Woman', value: 'Kadın'},
+			{name: 'Kid', value: 'Çocuk'},
+		],
       products:{},
     }
   },
@@ -182,5 +207,25 @@ export default Vue.extend({
     color:#25178f;
     font-weight: bold;
 }
+
+.p-multiselect {
+    min-width: 15rem;
+}
+
+ 
+ .multiselect-custom .p-multiselect-label:not(.p-placeholder) {
+        padding-top: .25rem;
+        padding-bottom: .25rem;
+    }
+
+ .multiselect-custom .country-item-value {
+        padding: .25rem .5rem;
+        border-radius: 3px;
+        display: inline-flex;
+        margin-right: .5rem;
+        background-color: var(--primary-color);
+        color: var(--primary-color-text);
+
+    }
 
 </style>

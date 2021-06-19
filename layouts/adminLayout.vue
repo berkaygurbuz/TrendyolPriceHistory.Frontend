@@ -7,8 +7,7 @@
 <div class="content-container">
   <div class="container-fluid">
 
-<!-- <my-table></my-table> -->
-<!-- <getStatics></getStatics>
+<!-- <my-table></my-table> 
     <h1>Hello world!</h1>
     <b-form>
        <b-form-input
@@ -30,13 +29,11 @@
 <script lang="ts">
 import Vue from 'vue'
 import leftNavbar from "../components/adminPanel/leftNavbar.vue";
-import getStatics from "../components/adminPanel/getStatics.vue";
 import table from "../components/adminPanel/table/table.vue";
 export default Vue.extend({
     middleware: ["auth"],
     components:{
       leftNavbar,
-      getStatics,
       "my-table":table
     },
 

@@ -1,12 +1,15 @@
 <template>
   <b-container>
-    <h2>Product Page</h2>
+    <Products></Products>
   </b-container>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import Products from "../../components/dashboard/products.vue"
 export default Vue.extend({
-    
+    components:{
+      Products
+    }
 })
 </script>

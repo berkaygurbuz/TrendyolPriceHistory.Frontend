@@ -1,6 +1,6 @@
 <template>
 <div>
-    <h2>Update Product</h2>
+    <h2 class="text-center">Update Product</h2>
     <UpdateTable></UpdateTable>
 </div>
 </template>

@@ -25,15 +25,39 @@
             v-model="searchedName"
             @keydown.enter="onFilter($event)"
             class="p-column-filter"
-            placeholder="Search by name"
+            placeholder="Search by brand"
           />
         </template>
       </Column>
       <Column
-        field="name"
-        header="Name"
+        field="brand"
+        header="Brand"
         filterMatchMode="startsWith"
-        ref="name"
+        ref="brand"
+        :sortable="false"
+      >
+      </Column>
+            <Column
+        field="model"
+        header="Model"
+        filterMatchMode="startsWith"
+        ref="model"
+        :sortable="false"
+      >
+      </Column>
+                  <Column
+        field="category"
+        header="Category"
+        filterMatchMode="startsWith"
+        ref="category"
+        :sortable="false"
+      >
+      </Column>
+                        <Column
+        field="gender"
+        header="Gender"
+        filterMatchMode="startsWith"
+        ref="gender"
         :sortable="false"
       >
       </Column>
@@ -85,7 +109,10 @@ export default Vue.extend({
       lazyParams: {},
       columns: [
         { field: 'id', header: 'ID' },
-        { field: 'name', header: 'Name' },
+        { field: 'brand', header: 'Brand' },
+        { field: 'model', header: 'Model' },
+        { field: 'category', header: 'Category' },
+        { field: 'gender', header: 'Gender' },
         { field: 'price', header: 'Price' },
         { field: 'isApprove', header: 'isApprove' },
       ],

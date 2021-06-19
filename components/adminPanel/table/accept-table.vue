@@ -12,24 +12,22 @@
       @page="onPage($event)"
       @sort="onSort($event)"
     >
-      <Column
+  <Column
         field="id"
         header="ID"
         filterMatchMode="startsWith"
         ref="id"
         :sortable="false"
       >
-
       </Column>
       <Column
-        field="name"
-        header="Name"
+        field="linkUrl"
+        header="Product URL"
         filterMatchMode="startsWith"
-        ref="name"
+        ref="linkUrl"
         :sortable="false"
       >
       </Column>
-
       <Column
         field="isApprove"
         header="isApprove"
@@ -70,7 +68,7 @@ export default Vue.extend({
       lazyParams: {},
       columns: [
         { field: 'id', header: 'ID' },
-        { field: 'name', header: 'Name' },
+        { field: 'linkUrl', header: 'Product URL' },
         { field: 'isApprove', header: 'isApprove' },
       ],
       searchedName: '',

@@ -1,62 +1,50 @@
 <template>
   <div>
     <b-container class="my-padding">
-        <h2 class="heading-line text-center">New Product</h2>
+      <h2 class="heading-line text-center">New Products</h2>
       <b-row>
-        <b-col md="4">
-          <div class="my-container">
+        <b-col md="4" v-for="item in products" :key="item.id">
+          <div class="my-container mt-5">
             <div class="card">
-              <h4 class="productBrand mt-3">Trendyol Man</h4>
-              <p class="productType text-center">Camel Erkek Oversize Fit Eşofman Takımı TMNSS21EM0041 </p>
+              <h4 class="productBrand mt-3">{{item.brand}}</h4>
+              <p class="productType text-center">
+                {{item.model}}
+              </p>
               <img
-                src="https://cdn.dsmcdn.com/ty68/product/media/images/20210216/19/63436002/130033157/1/1_org.jpg"
-                alt="black tie"
+                :src="item.imageUrl"
+                :alt="item.model"
                 style="width: 190px; height: 240px"
                 class="img-fluid"
               />
-              <h2 class="price">₺89.99</h2>
+              <h2 class="price">₺{{item.price}}</h2>
             </div>
             <button class="cartBtn">SEE PRICE HISTORY</button>
-            <button class="wishlistBtn">BUY PRODUCT</button>
+            <button class="wishlistBtn"><a :href="item.linkUrl" target="_blank">BUY PRODUCT</a></button>
           </div>
         </b-col>
-        <b-col md="4">
-          <div class="my-container">
-            <div class="card">
-              <h4 class="productBrand mt-3">TRENDYOL MAN</h4>
-              <p class="productType text-center">Beyaz Basic Erkek Oversize Bisiklet Yaka Kısa Kollu T-Shirt TMNSS21TS0811</p>
-              <img
-                src="https://cdn.dsmcdn.com/ty64/product/media/images/20210128/20/58099823/135399562/1/1_org.jpg"
-                alt="black tie"
-                style="width: 190px; height: 240px"
-              />
-              <h2 class="price">₺89.99</h2>
-            </div>
-            <button class="cartBtn">SEE PRICE HISTORY</button>
-            <button class="wishlistBtn">BUY PRODUCT</button>
-          </div>
-        </b-col>
-        <b-col md="4">
-          <div class="my-container">
-            <div class="card">
-              <h4 class="productBrand mt-3">Defacto</h4>
-              <p class="productType text-center">Diz Üstü Desenli Deniz Şortu M8328AZ21HS</p>
-              <img
-                src="https://cdn.dsmcdn.com/ty66/product/media/images/20210317/17/73117840/154381410/1/1_org.jpg"
-                alt="black tie"
-                style="width: 190px; height: 240px"
-              />
-              <h2 class="price">₺89.99</h2>
-            </div>
-            <button class="cartBtn">SEE PRICE HISTORY</button>
-            <button class="wishlistBtn">BUY PRODUCT</button>
-          </div>
-        </b-col>
+    
       </b-row>
-
     </b-container>
   </div>
 </template>
+
+<script lang="ts">
+import Vue from 'vue'
+export default Vue.extend({
+  data() {
+    return {
+      products: {},
+    }
+  },
+  async mounted() {
+    await this.$axios.get('getAllProducts', {}).then((res) => {
+      console.log('res : ', res.data)
+      this.products = res.data
+      this.products = this.products.slice(Math.max(this.products.length - 6, 0))
+    })
+  },
+})
+</script>
 
 <style scoped>
 @import url('http://fonts.cdnfonts.com/css/mark-pro');
@@ -88,8 +76,8 @@
 .price {
   font-size: 24px;
   color: #25178f;
-  font-family: 'Lato',sans-serif;
-  font-weight: bold
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
 }
 
 .cartBtn {
@@ -100,7 +88,7 @@
 .wishlistBtn {
   width: 150px;
   height: 50px;
-  background-color: #140B5C;
+  background-color: #140b5c;
   color: white;
   border: none;
   border-radius: 15px;
@@ -111,16 +99,21 @@
   opacity: 0;
   cursor: pointer;
   /* padding-bottom: 60px; */
-  font-family: 'Lato',sans-serif;
-  font-size:0.85rem;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.85rem;
   transition: all 0.2s ease;
 }
 
 .wishlistBtn {
   background-color: #f5f5f5;
-  color: #140B5C;
+  color: #140b5c;
   /* bottom: 35%; */
   margin-top: 5em;
+}
+
+.wishlistBtn a{
+  text-decoration: none;
+  color:#140B5C;
 }
 
 .my-container:hover .cartBtn,
@@ -139,21 +132,21 @@
   justify-content: center;
   align-items: center;
 }
-@media(max-width:768px){
-  .my-container{
-    margin-top:2rem!important;
+@media (max-width: 768px) {
+  .my-container {
+    margin-top: 2rem !important;
   }
 }
 
-.my-padding{
-    padding-top:90px;
-    padding-bottom: 90px;
+.my-padding {
+  padding-top: 90px;
+  padding-bottom: 90px;
 }
-.heading-line{
-    font-family: 'Lato',sans-serif;
-    font-size:2.75rem;
-    font-weight: 400;
-    color:#140B5C!important;
+.heading-line {
+  font-family: 'Lato', sans-serif;
+  font-size: 2.75rem;
+  font-weight: 400;
+  color: #140b5c !important;
 }
 
 .heading-line:after {
@@ -163,7 +156,7 @@
   margin-bottom: 50px;
   width: 60px;
   height: 2px;
-  background-color: #140B5C;
+  background-color: #140b5c;
 }
 
 .heading-line:after {
@@ -171,9 +164,9 @@
   margin-right: auto;
 }
 
-.productBrand{
-    font-family: 'Lato',sans-serif;
-    color:#25178f;
-    font-weight: bold;
+.productBrand {
+  font-family: 'Lato', sans-serif;
+  color: #25178f;
+  font-weight: bold;
 }
 </style>

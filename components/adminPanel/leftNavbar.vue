@@ -14,8 +14,8 @@
         </nuxt-link>
       </li>
       <li>
-        <nuxt-link to="">
-          <i class="fa fa-users" aria-hidden="true"></i> Statics
+        <nuxt-link to="/admin/manuelSave">
+          <i class="fa fa-users" aria-hidden="true"></i> Manuel Fetching
         </nuxt-link>
       </li>
 

@@ -1,12 +1,14 @@
 <template>
-    <div>
-        <h2>addProduct</h2>
-    </div>
+    <AddProduct></AddProduct>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import AddProduct from "../../components/adminPanel/addProduct.vue"
 export default Vue.extend({
-    layout:"adminLayout"
+    layout:"adminLayout",
+    components:{
+        AddProduct
+    }
 })
 </script>
