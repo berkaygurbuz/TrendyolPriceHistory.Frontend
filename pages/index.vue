@@ -3,7 +3,7 @@
         <Header></Header>
     <ProductList></ProductList>
     <!-- <Chart></Chart> -->
-    
+    <chart-2></chart-2>
     <ProductCard></ProductCard>
     <Pros></Pros>
     <NewProduct></NewProduct>
@@ -18,6 +18,7 @@ import Chart from "../components/dashboard/chart.vue"
 import ProductCard from "../components/dashboard/product-card.vue";
 import Pros from "../components/dashboard/pros.vue"
 import NewProduct from "../components/dashboard/newProduct.vue";
+import Chart2 from '~/components/dashboard/chart2.vue';
 export default Vue.extend({
   components:{
     Header,
@@ -25,7 +26,8 @@ export default Vue.extend({
     Chart,
     ProductCard,
     Pros,
-    NewProduct
+    NewProduct,
+    Chart2
   },
   data() {
     return {

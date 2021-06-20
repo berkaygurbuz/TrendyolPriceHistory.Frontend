@@ -53,22 +53,6 @@
             </button>
           </div>
         </b-col>
-        <!-- <b-col md="4">
-          <div class="my-container">
-            <div class="card">
-              <h4 class="productBrand mt-3">TRENDYOL MAN</h4>
-              <p class="productType text-center">Beyaz Basic Erkek Oversize Bisiklet Yaka Kısa Kollu T-Shirt TMNSS21TS0811</p>
-              <img
-                src="https://cdn.dsmcdn.com/ty64/product/media/images/20210128/20/58099823/135399562/1/1_org.jpg"
-                alt="black tie"
-                style="width: 190px; height: 240px"
-              />
-              <h2 class="price">₺89.99</h2>
-            </div>
-            <button class="cartBtn">SEE PRICE HISTORY</button>
-            <button class="wishlistBtn">BUY PRODUCT</button>
-          </div>
-        </b-col> -->
       </b-row>
     </b-container>
   </div>
@@ -76,44 +60,45 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import MultiSelect from 'primevue/multiselect';
+import MultiSelect from 'primevue/multiselect'
 export default Vue.extend({
-    components:{
-        MultiSelect
-    },
-  data(){
-    return{
-        selectedGender: null,
-		gender: [
-			{name: 'Man', value: 'Erkek'},
-			{name: 'Woman', value: 'Kadın'},
-			{name: 'Kid', value: 'Çocuk'},
-		],
-    categories:[
-      {name:'T-Shirts',value:'T-Shirt' },
-      {name:'Jean',value:'Jean' },
-      {name:'Shirt',value:'Gömlek' },
-
-    ],
-    selectedCategory:null,
-      products:{},
+  components: {
+    MultiSelect,
+  },
+  data() {
+    return {
+      selectedGender: null,
+      gender: [
+        { name: 'Man', value: 'Erkek' },
+        { name: 'Woman', value: 'Kadın' },
+        { name: 'Kid', value: 'Çocuk' },
+      ],
+      categories: [
+        { name: 'T-Shirts', value: 'T-Shirt' },
+        { name: 'Jean', value: 'Jean' },
+        { name: 'Shirt', value: 'Gömlek' },
+      ],
+      selectedCategory: {
+        name: 'T-Shirts',
+        value: 'T-Shirt',
+      },
+      products: {},
     }
   },
-  async mounted(){
-    await this.$axios.get('getAllProducts',{}).then(res=>{
-      console.log("res : ",res.data);
-      this.products=res.data
-      
-    })
-
+  async mounted() {
+    await this.$axios
+      .get('/getFilterByCategoryAndGender?category=T-Shirt', {})
+      .then((res) => {
+        this.products = res.data
+      })
   },
-  methods:{
-    async filterByGenderAndCategories(){
-      console.log("selected city: ",this.selectedCars);
-      console.log("selected category: ",this.selectedCategory);
-      console.log("selected gender: ",this.selectedGender);
+  methods: {
+    async filterByGenderAndCategories() {
+      console.log('selected city: ', this.selectedCars)
+      console.log('selected category: ', this.selectedCategory)
+      console.log('selected gender: ', this.selectedGender)
 
-       if (this.selectedCategory != null && this.selectedGender != null) {
+      if (this.selectedCategory != null && this.selectedGender != null) {
         await this.$axios
           .get(
             '/getFilterByCategoryAndGender?category=' +
@@ -150,8 +135,7 @@ export default Vue.extend({
         })
       }
     },
-
-  }
+  },
 })
 </script>
 

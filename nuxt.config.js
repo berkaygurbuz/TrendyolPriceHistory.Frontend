@@ -52,7 +52,8 @@ export default {
         "Calendar",
         "Dropdown",
         "ProgressBar",
-        "MultiSelect"
+        "MultiSelect",
+        "Chart"
     ]
 },
 

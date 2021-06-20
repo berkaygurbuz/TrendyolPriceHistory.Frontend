@@ -13,12 +13,18 @@
           <i class="fa fa-file-alt" aria-hidden="true"></i> Requests
         </nuxt-link>
       </li>
-      <li>
+
+ <li class="header">Price History</li>
+       <li>
         <nuxt-link to="/admin/manuelSave">
           <i class="fa fa-users" aria-hidden="true"></i> Manuel Fetching
         </nuxt-link>
       </li>
-
+             <li>
+        <nuxt-link to="/admin/showHistory">
+          <i class="fa fa-history" aria-hidden="true"></i> Show History
+        </nuxt-link>
+      </li>
       <li class="header">Products</li>
       <li>
         <nuxt-link to="/admin/showProduct">

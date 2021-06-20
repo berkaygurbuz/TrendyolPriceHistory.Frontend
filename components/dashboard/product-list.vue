@@ -12,7 +12,7 @@
             />
             <figcaption>
               <h2>T-Shirts</h2>
-              <a href="#">Explore Price History</a>
+              <a href="/app/productTshirts">Explore Price History</a>
             </figcaption>
           </div>
         </b-col>
