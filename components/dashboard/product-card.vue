@@ -16,7 +16,7 @@
               />
               <h2 class="price">₺{{item.price}}</h2>
             </div>
-            <button class="cartBtn">SEE PRICE HISTORY</button>
+            <button class="cartBtn"><nuxt-link :to="`/app/product/${item.id}`"> PRICE HISTORY</nuxt-link></button>
             <button class="wishlistBtn"><a :href="item.linkUrl" target="_blank">BUY PRODUCT</a></button>
           </div>
         </b-col>
@@ -129,6 +129,12 @@ export default Vue.extend({
 .my-container:hover .wishlistBtn {
   opacity: 1 !important;
   display: inline !important;
+}
+
+.cartBtn a{
+  text-decoration: none;
+  background-color: #140B5C;
+  color: white;
 }
 
 .wishlistBtn a{

@@ -19,19 +19,6 @@ export default Vue.extend({
 					},
 				]
 			},
-            options: {
-	responsive: true,
-	hoverMode: 'index',
-	stacked: false,
-	scales: {
-        yAxes: [{
-            type: 'linear',
-            display: true,
-            position: 'left',
-            id: 'y-axis-1',
-        },]
-	}
-}
             
 		}
 	},
