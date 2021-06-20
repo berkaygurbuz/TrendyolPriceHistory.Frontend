@@ -25,9 +25,11 @@ export default {
   plugins: [
     {
       src:"~/plugins/ChartLineBase.js",
-      src:"~/plugins/amplify.ts"
+      src:"~/plugins/amplify.ts",
     }
   ],
+
+
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

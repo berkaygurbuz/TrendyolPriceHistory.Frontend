@@ -25,7 +25,7 @@
             />
             <figcaption>
               <h2>Sweatshirts</h2>
-              <a href="#">Explore Price History</a>
+              <a href="/app/productSweat">Explore Price History</a>
             </figcaption>
           </div>
         </b-col>
@@ -38,7 +38,7 @@
             />
             <figcaption>
               <h2>Jean</h2>
-              <a href="#">Explore Price History</a>
+              <a href="/app/productJean">Explore Price History</a>
             </figcaption>
           </div>
         </b-col>

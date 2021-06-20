@@ -18,12 +18,27 @@
                     </ul>
                 </div>
             </div>
-             <input class="my-input" type="arama" name="text" placeholder="Find cheapest price of products!" required="">
-                 <button type="submit" class="my-btn ">Search</button>
-
+            <form>
+             <input   v-model="searchedString" class="my-input" type="arama" name="text" placeholder="Find cheapest price of products!" required="">
+                 <nuxt-link :to="{path:'/app/search',query:{plan:this.searchedString}}"><button  type="submit" class="my-btn " @click="goTo">Search</button></nuxt-link>
+            </form>
     </div>
 </template>
-
+<script lang="ts">
+import Vue from 'vue'
+export default Vue.extend({
+    data(){
+        return{
+            searchedString:"",
+        }
+    },
+    methods:{
+        goTo(){
+                 this.$router.push 
+        }
+    }
+})
+</script>
 <style scoped>
 @import url('http://fonts.cdnfonts.com/css/mark-pro');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');

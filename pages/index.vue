@@ -35,13 +35,7 @@ export default Vue.extend({
     }
   },
   created(){
-    
-       this.$axios
-        .get('http://localhost:3430/api/Product/getProducts')
-        .then(({ data }) => {
-          this.items = data
-        })
-
+  
   },
 })
 </script>

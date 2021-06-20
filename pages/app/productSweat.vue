@@ -78,16 +78,21 @@ export default Vue.extend({
         { name: 'Jean', value: 'Jean' },
         { name: 'Shirt', value: 'Gömlek' },
         { name: 'Sweatshirt', value: 'Sweatshirt' },
+
       ],
-      selectedCategory: null,
+      selectedCategory: {
+        name: 'Sweatshirt',
+        value: 'Sweatshirt',
+      },
       products: {},
     }
   },
   async mounted() {
-    await this.$axios.get('getAllProducts', {}).then((res) => {
-      console.log('res : ', res.data)
-      this.products = res.data
-    })
+    await this.$axios
+      .get('/getFilterByCategoryAndGender?category=Sweatshirt', {})
+      .then((res) => {
+        this.products = res.data
+      })
   },
   methods: {
     async filterByGenderAndCategories() {

@@ -61,6 +61,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import MultiSelect from 'primevue/multiselect'
+
 export default Vue.extend({
   components: {
     MultiSelect,
@@ -80,15 +81,38 @@ export default Vue.extend({
         { name: 'Sweatshirt', value: 'Sweatshirt' },
       ],
       selectedCategory: null,
+      searchedString:"",
       products: {},
     }
   },
+  //   created(){
+  //     try{
+
+  //       this.$nuxt.$on("resize-map",(data)=>{
+  //         console.log("data : ",data);
+  // })}catch(e){
+
+  //   console.log("erorr",e);
+  // };
+  //   },
+
   async mounted() {
-    await this.$axios.get('getAllProducts', {}).then((res) => {
+    this.searchedString=this.$route.query.plan;
+      await this.$axios.get('getProductSearch?search='+this.searchedString, {}).then((res) => {
       console.log('res : ', res.data)
       this.products = res.data
     })
+    console.log("res : ",this.$route.query);
+    
   },
+  // async mounted() {
+  //   await this.$axios.get('getProductSearch?search=', {}).then((res) => {
+  //     console.log('res : ', res.data)
+  //     this.products = res.data
+  //   })
+
+  //   console.log('search ', this.search)
+  // },
   methods: {
     async filterByGenderAndCategories() {
       console.log('selected city: ', this.selectedCars)
