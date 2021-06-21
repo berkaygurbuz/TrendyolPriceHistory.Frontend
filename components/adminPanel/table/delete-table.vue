@@ -37,7 +37,7 @@
         :sortable="false"
       >
       </Column>
-            <Column
+      <Column
         field="model"
         header="Model"
         filterMatchMode="startsWith"
@@ -45,7 +45,7 @@
         :sortable="false"
       >
       </Column>
-                  <Column
+      <Column
         field="category"
         header="Category"
         filterMatchMode="startsWith"
@@ -53,7 +53,7 @@
         :sortable="false"
       >
       </Column>
-                        <Column
+      <Column
         field="gender"
         header="Gender"
         filterMatchMode="startsWith"
@@ -84,20 +84,28 @@
             type="button"
             variant="danger"
             @click="deleteById(slotProps.data.id)"
-            > <i class="fa fa-trash-alt" aria-hidden="true" style="font-size: 1.5rem"></i></b-button
           >
+            <i
+              class="fa fa-trash-alt"
+              aria-hidden="true"
+              style="font-size: 1.5rem"
+            ></i
+          ></b-button>
         </template>
       </Column>
     </DataTable>
+    <Toast />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import InputText from 'primevue/inputtext'
+import Toast from 'primevue/toast'
 export default Vue.extend({
   components: {
     InputText,
+    Toast,
   },
   data() {
     return {
@@ -152,12 +160,21 @@ export default Vue.extend({
       console.log('event', event)
       this.lazyParams = event
     },
-   async deleteById(id) {
-       this.loading=true;
-      let endpoint="/deleteById?id="+id;
-    await this.$axios.delete(endpoint,{}).then(res=>{
-        this.onLazyEvent();
-    })
+    async deleteById(id) {
+      this.loading = true
+      let endpoint = '/deleteById?id=' + id
+      await this.$axios.delete(endpoint, {}).then((res) => {
+        this.$toast.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Delete process completed.',
+          life: 3000,
+        })
+        this.onLazyEvent()
+      }).catch(e=>{
+                this.$toast.add({severity:'error', summary: 'Error', detail:e, life: 3000});
+
+        })
     },
     async onFilter() {
       this.lazyParams.first = 0

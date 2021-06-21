@@ -7,14 +7,14 @@
                     <h4>Most Searches</h4>
                     <ul>
                         <li>
-                            <a href="#">T-Shirts</a>
+                            <a href="/app/productTshirts">T-Shirts</a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="/app/productSweat">
                                 Sweatshirts
                             </a>
                         </li>
-                        <li><a href="#">Blouse</a></li>
+                        <li><a href="/app/productJean">Jean</a></li>
                     </ul>
                 </div>
             </div>

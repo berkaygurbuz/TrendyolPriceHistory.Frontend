@@ -20,22 +20,6 @@
             <button class="wishlistBtn"><a :href="item.linkUrl" target="_blank">BUY PRODUCT</a></button>
           </div>
         </b-col>
-        <!-- <b-col md="4">
-          <div class="my-container">
-            <div class="card">
-              <h4 class="productBrand mt-3">TRENDYOL MAN</h4>
-              <p class="productType text-center">Beyaz Basic Erkek Oversize Bisiklet Yaka Kısa Kollu T-Shirt TMNSS21TS0811</p>
-              <img
-                src="https://cdn.dsmcdn.com/ty64/product/media/images/20210128/20/58099823/135399562/1/1_org.jpg"
-                alt="black tie"
-                style="width: 190px; height: 240px"
-              />
-              <h2 class="price">₺89.99</h2>
-            </div>
-            <button class="cartBtn">SEE PRICE HISTORY</button>
-            <button class="wishlistBtn">BUY PRODUCT</button>
-          </div>
-        </b-col> -->
         
       </b-row>
     </b-container>

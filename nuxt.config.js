@@ -26,6 +26,7 @@ export default {
     {
       src:"~/plugins/ChartLineBase.js",
       src:"~/plugins/amplify.ts",
+      src:"~/plugins/toast.ts",
     }
   ],
 
@@ -55,7 +56,7 @@ export default {
         "Dropdown",
         "ProgressBar",
         "MultiSelect",
-        "Chart"
+        "Chart",
     ]
 },
 

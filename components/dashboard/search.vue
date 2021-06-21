@@ -47,7 +47,7 @@
               />
               <h2 class="price">₺{{ item.price }}</h2>
             </div>
-            <button class="cartBtn">SEE PRICE HISTORY</button>
+            <button class="cartBtn"><nuxt-link :to="`/app/product/${item.id}`">SEE PRICE HISTORY</nuxt-link></button>
             <button class="wishlistBtn">
               <a :href="item.linkUrl" target="_blank">BUY PRODUCT</a>
             </button>
@@ -85,16 +85,7 @@ export default Vue.extend({
       products: {},
     }
   },
-  //   created(){
-  //     try{
 
-  //       this.$nuxt.$on("resize-map",(data)=>{
-  //         console.log("data : ",data);
-  // })}catch(e){
-
-  //   console.log("erorr",e);
-  // };
-  //   },
 
   async mounted() {
     this.searchedString=this.$route.query.plan;
@@ -105,14 +96,7 @@ export default Vue.extend({
     console.log("res : ",this.$route.query);
     
   },
-  // async mounted() {
-  //   await this.$axios.get('getProductSearch?search=', {}).then((res) => {
-  //     console.log('res : ', res.data)
-  //     this.products = res.data
-  //   })
 
-  //   console.log('search ', this.search)
-  // },
   methods: {
     async filterByGenderAndCategories() {
       console.log('selected city: ', this.selectedCars)
@@ -181,7 +165,11 @@ export default Vue.extend({
   transform: scale(1.1);
   filter: brightness(50%);
 }
-
+.cartBtn a{
+  text-decoration: none;
+  background-color: #140B5C;
+  color: white;
+}
 .productType {
   color: grey;
   transform: translateY(-10px);

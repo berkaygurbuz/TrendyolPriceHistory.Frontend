@@ -92,6 +92,7 @@
         </template>
       </Column>
     </DataTable>
+    <Toast />
   </div>
 
   <div v-else>
@@ -138,15 +139,18 @@
         </div>
       </form>
     </b-container>
+    <Toast />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import InputText from 'primevue/inputtext'
+import Toast from 'primevue/toast'
 export default Vue.extend({
   components: {
     InputText,
+    Toast,
   },
   data() {
     return {
@@ -223,8 +227,23 @@ export default Vue.extend({
       if (data.isApprove == false) {
         let endpoint = '/acceptRequest/' + data.id
         await this.$axios.put(endpoint, {}).then((res) => {
+          this.$toast.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: 'Changed approve true',
+            life: 3000,
+          })
           this.onLazyEvent()
         })
+        console.log('toasts ', this.$toast)
+      } else {
+        this.$toast.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'Approve is false.',
+          life: 3000,
+        })
+        this.loading = false
       }
     },
     async changeFalseById(data) {
@@ -233,8 +252,23 @@ export default Vue.extend({
       if (data.isApprove == true) {
         let endpoint = '/acceptRequest/' + data.id
         await this.$axios.put(endpoint, {}).then((res) => {
+          this.$toast.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: 'Changed approve true',
+            life: 3000,
+          })
           this.onLazyEvent()
         })
+      } else {
+        this.$toast.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'Approve is true.',
+          life: 3000,
+        })
+
+        this.loading = false
       }
     },
     async updateProduct() {
@@ -251,7 +285,20 @@ export default Vue.extend({
         })
         .then((res) => {
           this.update = false
+                    this.$toast.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: 'Updated',
+            life: 3000,
+          })
           this.onLazyEvent()
+        }).catch(e=>{
+                  this.$toast.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: e,
+          life: 3000,
+        })
         })
     },
   },

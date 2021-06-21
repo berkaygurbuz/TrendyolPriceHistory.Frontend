@@ -47,13 +47,18 @@
         </div>
       </form>
     </div>
+    <Toast />
+    
   </b-container>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-
+import Toast from 'primevue/toast';
 export default Vue.extend({
+  components:{
+    Toast
+  },
   data() {
     return {
       data: {
@@ -75,8 +80,11 @@ export default Vue.extend({
         category:this.data.category,
         gender:this.data.gender,
         imageUrl:this.data.imgUrl
+      }).then(res=>{
+                    this.$toast.add({severity:'success', summary: 'Success', detail:'Product Added.', life: 3000});
+      }).catch(e=>{
+                this.$toast.add({severity:'error', summary: 'Error', detail:e, life: 3000});
       })
-      this.data.brand = ''
     },
   },
 })

@@ -14,9 +14,11 @@
           <!-- Right aligned nav items -->
           <b-navbar-nav class="ml-auto">
             <b-nav-item href="/">Home</b-nav-item>
-            <b-nav-item href="/app/startHistory" class="ml-md-3">Start History</b-nav-item>
-            <b-nav-item href="/app/discounts" class="ml-md-3">Discounts</b-nav-item>
             <b-nav-item href="/app/products" class="ml-md-3">Products</b-nav-item>
+            <b-nav-item href="/app/discounts" class="ml-md-3">Man</b-nav-item>
+            <b-nav-item href="/app/discounts" class="ml-md-3">Woman</b-nav-item>
+            <b-nav-item href="/app/startHistory" class="ml-md-3">Start History</b-nav-item>
+
           </b-navbar-nav>
         </b-collapse>
       </b-container>

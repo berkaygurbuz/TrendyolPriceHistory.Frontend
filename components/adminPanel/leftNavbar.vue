@@ -17,7 +17,7 @@
  <li class="header">Price History</li>
        <li>
         <nuxt-link to="/admin/manuelSave">
-          <i class="fa fa-users" aria-hidden="true"></i> Manuel Fetching
+          <i class="fa fa-hand-paper" aria-hidden="true"></i> Manuel Fetching
         </nuxt-link>
       </li>
              <li>
@@ -46,15 +46,12 @@
           <i class="fa fa-trash-alt" aria-hidden="true"></i> Delete Product
         </nuxt-link>
       </li>
+      <li class="header">User</li>
+   
+      <li>
+        <a href="#"> <i class="fa fa-sign-out-alt" aria-hidden="true"></i> Sign Out </a>
+      </li>
 
-      <li>
-        <a href="#"> <i class="fa fa-cog" aria-hidden="true"></i> Settings </a>
-      </li>
-      <li>
-        <a href="#">
-          <i class="fa fa-info-circle" aria-hidden="true"></i> Information
-        </a>
-      </li>
     </ul>
     <link
       rel="stylesheet"
