@@ -1,6 +1,6 @@
 {
   "auth": {
-    "trendyolpricehistoryac06fbbf": {
+    "trendyolpricehistoryfe82b3cf": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],

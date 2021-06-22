@@ -25,7 +25,7 @@ export default {
   plugins: [
     {
       src:"~/plugins/ChartLineBase.js",
-      src:"~/plugins/amplify.ts",
+      src:"~/plugins/amplify.js",
       src:"~/plugins/toast.ts",
     }
   ],
@@ -87,7 +87,7 @@ export default {
             endpoints: {
                     user:false,
             },
-            clientId: "438a4ndh93ksl1i7g78rjtcl11",
+            clientId: "25lv5r64pok1qevv3ri9fqoptu",
             scope: ["email", "openid", "profile"]
         }
     },

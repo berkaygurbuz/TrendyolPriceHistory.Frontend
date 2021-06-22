@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "trendyolpricehistoryac06fbbf_identitypool_ac06fbbf",
+    "identityPoolName": "trendyolpricehistoryfe82b3cf_identitypool_fe82b3cf",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "trendyac06fbbf",
-    "userPoolName": "trendyolpricehistoryac06fbbf_userpool_ac06fbbf",
+    "resourceNameTruncated": "trendyfe82b3cf",
+    "userPoolName": "trendyolpricehistoryfe82b3cf_userpool_fe82b3cf",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -28,10 +28,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "trendyac06fbbf_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "trendyfe82b3cf_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "ac06fbbf",
-    "resourceName": "trendyolpricehistoryac06fbbf",
+    "sharedId": "fe82b3cf",
+    "resourceName": "trendyolpricehistoryfe82b3cf",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
