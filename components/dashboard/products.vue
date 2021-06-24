@@ -142,7 +142,7 @@ export default Vue.extend({
 .card {
   width: 300px;
   height: 430px;
-  background-color: #f5f5f5;
+  background-color: white;
   border-radius: 25px;
   box-shadow: 0px 25px 36px 12px rgba(0, 0, 0, 0.2);
   padding-bottom: 10px;

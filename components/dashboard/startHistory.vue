@@ -16,14 +16,20 @@
     </div>
     <h2 class="heading-line text-center">What is Start History?</h2>
     <p class="text-center px-5 my-text-font" >If the price tracking of the product you are looking for has not yet been started by our site, you can send the link of the product you want to start registration. It starts after the price history of the product controlled by our admins is accepted.</p>
+
   </b-container>
+    <Toast class="mt-5"/>
   </b-container>
 
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import Toast from 'primevue/toast';
 export default Vue.extend({
+  components:{
+    Toast
+  },
      data(){
       return{
         linkUrl:"",
@@ -34,10 +40,17 @@ export default Vue.extend({
         await this.$axios.post('/createProduct',{
           linkUrl:this.linkUrl,
           
-        }).then(function (response){
+        }).then(res=>{
           console.log("succes");
+                    this.$toast.add({severity:'success', summary: 'Success', detail:'Your request sended.', life: 3000});
+        this.linkUrl="";
+
+        }).catch(e=>{
+                this.$toast.add({severity:'error', summary: 'Error', detail:e, life: 3000});
+
 
         })
+
       }
     }
 })

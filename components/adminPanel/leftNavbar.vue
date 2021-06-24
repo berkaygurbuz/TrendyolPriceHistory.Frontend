@@ -46,11 +46,7 @@
           <i class="fa fa-trash-alt" aria-hidden="true"></i> Delete Product
         </nuxt-link>
       </li>
-      <li class="header">User</li>
-   
-      <li>
-        <a href="#"> <i class="fa fa-sign-out-alt" aria-hidden="true"></i> Sign Out </a>
-      </li>
+
 
     </ul>
     <link

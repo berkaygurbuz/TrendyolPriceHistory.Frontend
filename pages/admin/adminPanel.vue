@@ -28,7 +28,8 @@
           <div class="face face2">
             <div class="content">
               <p>
-You can go request page to see requests. You can also accept requests in this page.
+                You can go request page to see requests. You can also accept
+                requests in this page.
               </p>
               <nuxt-link to="/admin/requests">Go Requests</nuxt-link>
             </div>
@@ -46,7 +47,7 @@ You can go request page to see requests. You can also accept requests in this pa
           <div class="face face2">
             <div class="content">
               <p>
-You can go manuel fetching page to fetch price history manually.
+                You can go manuel fetching page to fetch price history manually.
               </p>
               <nuxt-link to="/admin/manuelSave">Go Manuel Fetching</nuxt-link>
             </div>
@@ -65,9 +66,7 @@ You can go manuel fetching page to fetch price history manually.
           </div>
           <div class="face face2">
             <div class="content">
-              <p>
-You can go show history page to see price history products.
-              </p>
+              <p>You can go show history page to see price history products.</p>
               <nuxt-link to="/admin/showHistory">Go Show History</nuxt-link>
             </div>
           </div>
@@ -83,10 +82,8 @@ You can go show history page to see price history products.
           </div>
           <div class="face face2">
             <div class="content">
-              <p>
-You can go show products page to see products.
-              </p>
-               <nuxt-link to="/admin/showProduct">Go Show Products</nuxt-link>
+              <p>You can go show products page to see products.</p>
+              <nuxt-link to="/admin/showProduct">Go Show Products</nuxt-link>
             </div>
           </div>
         </div>
@@ -101,10 +98,7 @@ You can go show products page to see products.
           </div>
           <div class="face face2">
             <div class="content">
-              <p>
-You can go add products page to add new products.
-
-              </p>
+              <p>You can go add products page to add new products.</p>
               <nuxt-link to="/admin/addProduct">Go Add Product</nuxt-link>
             </div>
           </div>
@@ -123,7 +117,8 @@ You can go add products page to add new products.
           <div class="face face2">
             <div class="content">
               <p>
-You can go update products page to update products. You can also accept requests or decline requests.
+                You can go update products page to update products. You can also
+                accept requests or decline requests.
               </p>
               <nuxt-link to="/admin/updateProduct">Go Update Product</nuxt-link>
             </div>
@@ -140,19 +135,15 @@ You can go update products page to update products. You can also accept requests
           </div>
           <div class="face face2">
             <div class="content">
-              <p>
-You can go delete products page to delete products. 
-
-              </p>
-              <nuxt-link to="/admin/deleteProduct">Go Delete Products</nuxt-link
+              <p>You can go delete products page to delete products.</p>
+              <nuxt-link to="/admin/deleteProduct"
+                >Go Delete Products</nuxt-link
               >
             </div>
           </div>
         </div>
       </b-col>
     </b-row>
-  
-
   </b-container>
 </template>
 

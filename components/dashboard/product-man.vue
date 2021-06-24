@@ -47,7 +47,7 @@
               />
               <h2 class="price">₺{{ item.price }}</h2>
             </div>
-            <button class="cartBtn">SEE PRICE HISTORY</button>
+            <button class="cartBtn"><nuxt-link :to="`/app/product/${item.id}`">SEE PRICE HISTORY</nuxt-link></button>
             <button class="wishlistBtn">
               <a :href="item.linkUrl" target="_blank">BUY PRODUCT</a>
             </button>
@@ -147,7 +147,7 @@ export default Vue.extend({
 .card {
   width: 300px;
   height: 430px;
-  background-color: #f5f5f5;
+  background-color: white;
   border-radius: 25px;
   box-shadow: 0px 25px 36px 12px rgba(0, 0, 0, 0.2);
   padding-bottom: 10px;
@@ -167,7 +167,11 @@ export default Vue.extend({
   color: grey;
   transform: translateY(-10px);
 }
-
+.cartBtn a{
+  text-decoration: none;
+  background-color: #140B5C;
+  color: white;
+}
 .price {
   font-size: 24px;
   color: #25178f;
